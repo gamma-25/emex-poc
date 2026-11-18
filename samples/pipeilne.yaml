@@ -1,0 +1,20 @@
+steps:
+  - name: curl_error_strings
+    kind: filter
+    on: ADDRESS_SPACE
+    as: addr
+    do:
+      bytes_match:
+        - addr
+        - '#A requested feature, protocol or option was not found built-in in this libcurl due to a build-time decision.'
+
+  - name: curl_easy_strerror
+    kind: filter
+    on: RUNTIME_FUNCTION_TABLE
+    as: func
+    do:
+      modrm_references:
+        - func
+        - curl_error_strings
+
+output: curl_easy_strerror

@@ -1,0 +1,11 @@
+[package]
+name = "emex"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+exe = "0.5.7"
+phf = { version = "0.14", features = [ "macros" ]  }
+serde = "1.0"
+serde_yaml_ng = "0.10"
